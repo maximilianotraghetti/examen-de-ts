@@ -1,30 +1,32 @@
 interface Equipo {
-    getDescripcion(): string;
+    detalles(): string; 
 }
+
 
 class Notebook implements Equipo {
     constructor(private nombre: string, private ram: string, private procesador: string) {}
-    getDescripcion(): string {
+    detalles(): string {
         return `Tipo: Notebook, Nombre: ${this.nombre}, RAM: ${this.ram}, Procesador: ${this.procesador}`;
     }
 }
 
 class Desktop implements Equipo {
     constructor(private nombre: string, private ram: string, private procesador: string) {}
-    getDescripcion(): string {
+    detalles(): string { 
         return `Tipo: Desktop, Nombre: ${this.nombre}, RAM: ${this.ram}, Procesador: ${this.procesador}`;
     }
 }
 
 class Servidor implements Equipo {
     constructor(private nombre: string, private ram: string, private procesador: string) {}
-    getDescripcion(): string {
+    detalles(): string { 
         return `Tipo: Servidor, Nombre: ${this.nombre}, RAM: ${this.ram}, Procesador: ${this.procesador}`;
     }
 }
 
+// Fábrica de equipos
 class EquipoFactory {
-    static crearEquipo(tipo: string, nombre: string, ram: string, procesador: string): Equipo {
+    crearEquipo(tipo: string, nombre: string, ram: string, procesador: string): Equipo {
         switch (tipo.toLowerCase()) {
             case "notebook":
                 return new Notebook(nombre, ram, procesador);
@@ -38,5 +40,7 @@ class EquipoFactory {
     }
 }
 
-const miServidor = EquipoFactory.crearEquipo("Servidor", "Dell PowerEdge", "32GB", "Xenon");
-console.log(miServidor.getDescripcion());
+
+const factory = new EquipoFactory(); 
+const server = factory.crearEquipo("Servidor", "Dell PowerEdge", "32GB", "Xeon");
+console.log(server.detalles());
