@@ -4,7 +4,7 @@ class InventarioViejo {
 
     addItem(nombre: string): void {
         this.items.push({ nombre: nombre });
-        console.log(`[ ${JSON.stringify(this.items[this.items.length - 1])} ]`); // Simplificado para mostrar solo el último añadido
+        console.log(`[ ${JSON.stringify(this.items[this.items.length - 1])} ]`); 
     }
 
     getItems(): { nombre: string }[] {
