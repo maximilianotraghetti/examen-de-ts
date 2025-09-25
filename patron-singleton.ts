@@ -1,9 +1,7 @@
 class Configuracion {
     private static instance: Configuracion;
     private entorno: string;
-
     private constructor() {
-
         this.entorno = "producción"; 
     }
 
@@ -25,10 +23,7 @@ class Configuracion {
 
 
 const config1 = Configuracion.getInstance();
-console.log(config1.getEntorno());
-
 const config2 = Configuracion.getInstance();
-config2.setEntorno("desarrollo"); 
 
-const config3 = Configuracion.getInstance(); 
-console.log(config3.getEntorno()); 
+
+console.log(config1 === config2); 
