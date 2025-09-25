@@ -40,7 +40,6 @@ class EquipoFactory {
     }
 }
 
-
 const factory = new EquipoFactory(); 
 const server = factory.crearEquipo("Servidor", "Dell PowerEdge", "32GB", "Xeon");
 console.log(server.detalles());
